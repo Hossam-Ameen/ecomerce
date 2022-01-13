@@ -1,9 +1,0 @@
-[2022-01-13 11:25:50.592] [main] [info] update#setState idle
-[2022-01-13 11:25:50.920] [main] [info] ExtensionHostStarterWorker created
-[2022-01-13 11:25:53.641] [main] [info] Starting extension host with pid 23676 (fork() took 10 ms).
-[2022-01-13 11:26:18.154] [main] [info] Extension host with pid 23676 exited with code: 0, signal: null.
-[2022-01-13 11:26:20.017] [main] [info] Starting extension host with pid 23763 (fork() took 6 ms).
-[2022-01-13 11:26:20.592] [main] [info] update#setState checking for updates
-[2022-01-13 11:26:20.593] [main] [info] update#setState idle
-[2022-01-13 11:26:41.005] [main] [info] Extension host with pid 23763 exited with code: 0, signal: null.
-[2022-01-13 11:26:41.904] [main] [info] Starting extension host with pid 23858 (fork() took 7 ms).
