@@ -1,8 +1,8 @@
 from rest_framework import serializers
 from .models import Brand
 
+
 class BrandSerializer(serializers.ModelSerializer):
     class Meta:
         model = Brand
-        fields = "__all__"
-        
+        fields = ['id', 'name', 'image' ,'user']

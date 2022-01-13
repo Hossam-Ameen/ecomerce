@@ -1,10 +1,9 @@
-from django.urls import path,include
-from . import views 
-from rest_framework.routers import DefaultRouter
-
-router = DefaultRouter()
-router.register(r'', views.StockViewSet)
-
+from . import views
+from django.urls import path
 urlpatterns = [
-    path('', include(router.urls)),
+    path('' , views.ListStocks.as_view()),
+    path('create/' , views.CreateStock.as_view()),
+    path('<int:pk>/' , views.GetStock.as_view()),
+    path("update/<int:pk>/",views.UpdateStock.as_view(),name="update_stock"),
+    path("delete/<int:pk>/",views.DeleteStock.as_view(),name="delete_stock")
 ]
