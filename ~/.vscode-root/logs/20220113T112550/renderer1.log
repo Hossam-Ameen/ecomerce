@@ -1,0 +1,27 @@
+[2022-01-13 11:25:54.523] [renderer1] [error] [Extension Host] (node:23676) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+(Use `code --trace-deprecation ...` to show where the warning was created)
+[2022-01-13 11:26:20.476] [renderer1] [error] [Extension Host] (node:23763) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+(Use `code --trace-deprecation ...` to show where the warning was created)
+[2022-01-13 11:26:42.317] [renderer1] [error] [Extension Host] (node:23858) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+(Use `code --trace-deprecation ...` to show where the warning was created)
+[2022-01-13 11:26:58.991] [renderer1] [error] Error: Unable to move/copy '/home/dev/Desktop/ecomerce' because target '/home/dev/Desktop/project/ecomerce' already exists at destination.
+    at Ei.doValidateMoveCopy (vscode-file://vscode-app/snap/code/85/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:577:39530)
+    at async Ei.doCanMoveCopy (vscode-file://vscode-app/snap/code/85/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:577:36971)
+    at async n.doMoveOrCopy (vscode-file://vscode-app/snap/code/85/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2363:57390)
+    at async ml.perform (vscode-file://vscode-app/snap/code/85/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2369:20958)
+    at async r.apply (vscode-file://vscode-app/snap/code/85/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2369:26540)
+    at async o._performFileEdits (vscode-file://vscode-app/snap/code/85/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2369:28623)
+    at async o.perform (vscode-file://vscode-app/snap/code/85/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2369:28166)
+    at async r.apply (vscode-file://vscode-app/snap/code/85/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2369:30428)
+    at async vscode-file://vscode-app/snap/code/85/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1506:64020
+[2022-01-13 11:26:58.996] [renderer1] [error] Unable to move/copy '/home/dev/Desktop/ecomerce' because target '/home/dev/Desktop/project/ecomerce' already exists at destination.: Error: Unable to move/copy '/home/dev/Desktop/ecomerce' because target '/home/dev/Desktop/project/ecomerce' already exists at destination.
+    at Ei.doValidateMoveCopy (vscode-file://vscode-app/snap/code/85/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:577:39530)
+    at async Ei.doCanMoveCopy (vscode-file://vscode-app/snap/code/85/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:577:36971)
+    at async n.doMoveOrCopy (vscode-file://vscode-app/snap/code/85/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2363:57390)
+    at async ml.perform (vscode-file://vscode-app/snap/code/85/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2369:20958)
+    at async r.apply (vscode-file://vscode-app/snap/code/85/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2369:26540)
+    at async o._performFileEdits (vscode-file://vscode-app/snap/code/85/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2369:28623)
+    at async o.perform (vscode-file://vscode-app/snap/code/85/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2369:28166)
+    at async r.apply (vscode-file://vscode-app/snap/code/85/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2369:30428)
+    at async vscode-file://vscode-app/snap/code/85/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1506:64020
+[2022-01-13 11:27:01.151] [renderer1] [error] [File Watcher (parcel)] restarting watcher after error: terminated by itself with code undefined, signal: SIGSEGV

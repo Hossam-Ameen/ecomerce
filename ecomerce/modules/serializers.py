@@ -3,7 +3,5 @@ from .models import Module
 
 class ModuleSerializer(serializers.ModelSerializer):
     class Meta:
-        fields = ['id','name' , 'brand','user']
         model = Module
-        
-    
+        fields = "__all__"

@@ -1,0 +1,6 @@
+[2022-01-13 11:25:59.999] [sharedprocess] [info] Deleted from disk ms-python.vscode-pylance /root/.vscode/extensions/ms-python.vscode-pylance-2022.1.0
+[2022-01-13 11:26:20.204] [sharedprocess] [info] Starting worker process with pid 23778 (type: watcherServiceParcelSharedProcess, window: 1).
+[2022-01-13 11:26:41.014] [sharedprocess] [info] Worker process with pid 23778 terminated normally (type: watcherServiceParcelSharedProcess, window: 1).
+[2022-01-13 11:26:41.932] [sharedprocess] [info] Starting worker process with pid 23859 (type: watcherServiceParcelSharedProcess, window: 1).
+[2022-01-13 11:27:01.150] [sharedprocess] [error] SharedProcess (worker, watcherServiceParcelSharedProcess): Worker process with pid 23859 terminated by itself with code null, signal: SIGSEGV (type: watcherServiceParcelSharedProcess, window: 1)
+[2022-01-13 11:27:01.158] [sharedprocess] [info] Starting worker process with pid 23958 (type: watcherServiceParcelSharedProcess, window: 1).
