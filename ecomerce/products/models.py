@@ -8,6 +8,6 @@ class Product(models.Model):
     quantity = models.IntegerField()
     price = models.FloatField()
     discount = models.FloatField()
-    module   = models.ForeignKey(Module, on_delete=models.CASCADE)
-    user     = models.ForeignKey(User,  on_delete=models.CASCADE)
+    module   = models.ForeignKey(Module,related_name="module", on_delete=models.CASCADE)
+    user     = models.ForeignKey(User,related_name="user",  on_delete=models.CASCADE)
     
