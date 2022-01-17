@@ -10,5 +10,5 @@ class Brand(models.Model):
 
     def delete(self, *args, **kwargs):
         os.remove(os.path.join(settings.MEDIA_ROOT, self.image.name))
-        super(Brand,self).delete(*args,**kwargs)
+        super(Brand, self).delete(*args, **kwargs)
         

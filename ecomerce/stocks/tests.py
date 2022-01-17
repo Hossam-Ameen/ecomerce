@@ -50,17 +50,13 @@ class StockDetialTest(StockCase):
             'name': "updated item"
         } ,format='json')
         updated_stock=Stock.objects.get(id=self.create_stock_response.data['id'])
-        
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(updated_stock.name, "updated item")
     
     def test_delete_one_item(self):
         stocks_counter = Stock.objects.all().count()
-
         self.assertGreater(stocks_counter , 0)
-        self.assertEqual(stocks_counter , 1)
-        
+        self.assertEqual(stocks_counter , 1)      
         response=self.client.delete(reverse('stocks-detail', kwargs={'pk':self.create_stock_response.data['id'] } ))
-        
         self.assertEqual(response.status_code , status.HTTP_204_NO_CONTENT)
         self.assertEqual(Stock.objects.all().count(), 0)

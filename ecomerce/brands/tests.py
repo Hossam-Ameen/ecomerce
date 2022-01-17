@@ -1,6 +1,5 @@
 from rest_framework import status
 from django.urls import reverse
-from django.test import TestCase
 from django.contrib.auth.models import User
 from .models import Brand
 from rest_framework.test import APITestCase 
@@ -19,7 +18,7 @@ class BrandCase(APITestCase):
         self.token = response.data['access']
         
     def create_brand(self):
-        file=SimpleUploadedFile(name='test_image.jpg', content=open(self.BASE_DIR/'lg.jpeg', 'rb').read(), content_type='image/jpeg')
+        file=SimpleUploadedFile(name='samsung_image.jpg', content=open(self.BASE_DIR/'samsung.png', 'rb').read(), content_type='image/jpeg')
         new_brand = {'name':"samsung",'image':file}
         self.brand_create_response = self.client.post(reverse('brands-list'), new_brand, HTTP_AUTHORIZATION=f"Bearer {self.token}")
         
@@ -43,7 +42,38 @@ class BrandListTest(BrandCase):
         self.assertIsInstance(response.data['results'], list)
         self.assertIsInstance(response.data['count'], int)
         self.assertEqual(response.data['count'], 1)
+        
+        
+class BrandDetialTest(BrandCase):
+    def setUp(self):
+       self.create_user()
+       self.create_brand()
+       
+    def tearDown(self):
+        brands = Brand.objects.all()
+        for brand in brands:
+            brand.delete()  
+            
+    def test_retrieves_one_item(self):
+        response = self.client.get(reverse('brands-detail', kwargs={'pk':self.brand_create_response.data['id'] } ) )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        
+    def test_update_one_item(self):
+        response = self.client.patch(reverse('brands-detail', kwargs={'pk':self.brand_create_response.data['id'] } ) , {
+            'name': "LG"
+        } )
+        updated_brand=Brand.objects.get(id=self.brand_create_response.data['id'])
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(updated_brand.name, "LG")      
     
+    def test_update_one_item_with_image(self):
+        file=SimpleUploadedFile(name='lg_updated.jpg', content=open(self.BASE_DIR/'lg.jpeg', 'rb').read(), content_type='image/jpeg')
+        response = self.client.patch(reverse('brands-detail', kwargs={'pk':self.brand_create_response.data['id'] } ) , {
+            'image': file
+        } ) 
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+            
     def test_delete_brand(self):
         brands_counter = Brand.objects.all().count()
         self.assertGreater(brands_counter , 0)
