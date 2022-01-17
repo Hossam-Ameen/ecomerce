@@ -1,14 +1,14 @@
 from .models import Product
 from .serializers import ProductSerializer
 from rest_framework.response import Response
-from rest_framework import status,viewsets
+from rest_framework import status, viewsets
 
 
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     
-    def create(self, request, * args, ** kwargs):
+    def create(self, request, *args, **kwargs):
         request.data._mutable = True
         request.data.update({'user': request.user.id})
         product_serializer = self.serializer_class(data=request.data)

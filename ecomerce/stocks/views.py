@@ -1,14 +1,14 @@
 from .models import Stock
 from .serializers import StockSerializer
 from rest_framework.response import Response
-from rest_framework import status,viewsets
+from rest_framework import status, viewsets
 
 
 class StockViewSet(viewsets.ModelViewSet):
     queryset = Stock.objects.all()
     serializer_class = StockSerializer
     
-    def create(self, request, * args, ** kwargs):
+    def create(self, request, *args, **kwargs):
         request.data._mutable = True
         request.data.update({'user': request.user.id})
         stock_serializer = self.serializer_class(data=request.data)

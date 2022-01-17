@@ -25,9 +25,8 @@ urlpatterns = [
         ################# login ###################
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    
-    path('', include('brands.urls')),
-    path('', include('modules.urls') ),
-    path('', include('stocks.urls')),
-    path('', include('products.urls')),
+    path('api/', include('brands.urls')),
+    path('api/', include('modules.urls') ),
+    path('api/', include('stocks.urls')),
+    path('api/', include('products.urls')),
 ]
