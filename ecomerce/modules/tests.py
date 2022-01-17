@@ -28,12 +28,16 @@ class ModuleCase(APITestCase):
         new_module = {'name':"samsung a1",'brand':self.brand_create_response.data['id']}
         self.module_create_response = self.client.post(reverse('modules-list'), new_module, HTTP_AUTHORIZATION=f"Bearer {self.token}")
     
-        
-class ModuleListTest(ModuleCase):
     def setUp(self):
        self.create_user()
        self.create_module()
-             
+    
+    def tearDown(self):
+        brands = Brand.objects.all()
+        for brand in brands:
+            brand.delete()
+        
+class ModuleListTest(ModuleCase):            
     def test_create_module(self):
         self.assertEqual(self.module_create_response.status_code , status.HTTP_201_CREATED) 
 
@@ -45,11 +49,7 @@ class ModuleListTest(ModuleCase):
         self.assertEqual(response.data['count'], 1)
         
         
-class ModuleDetialTest(ModuleCase):
-    def setUp(self):
-       self.create_user()
-       self.create_module() 
-            
+class ModuleDetialTest(ModuleCase):                    
     def test_retrieves_one_item(self):
         response = self.client.get(reverse('modules-detail', kwargs={'pk':self.module_create_response.data['id'] } ) )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
