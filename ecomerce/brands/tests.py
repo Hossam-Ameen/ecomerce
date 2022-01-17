@@ -9,9 +9,8 @@ from pathlib import Path
 
 
 class BrandCase(APITestCase):
-    
     BASE_DIR = Path(__file__).resolve().parent.parent
-    
+
     def create_user(self):
         user = User.objects.create(username='admin')
         user.set_password('123')
@@ -26,7 +25,6 @@ class BrandCase(APITestCase):
         
         
 class BrandListTest(BrandCase):
-    
     def setUp(self):
        self.create_user()
        self.create_brand()
@@ -37,7 +35,6 @@ class BrandListTest(BrandCase):
             brand.delete()
              
     def test_create_brand(self):
-       
         self.assertEqual(self.brand_create_response.status_code , status.HTTP_201_CREATED) 
 
     def test_list_brands(self):
@@ -49,12 +46,9 @@ class BrandListTest(BrandCase):
     
     def test_delete_brand(self):
         brands_counter = Brand.objects.all().count()
-
         self.assertGreater(brands_counter , 0)
         self.assertEqual(brands_counter , 1)
-    
         response=self.client.delete(reverse('brands-detail', kwargs={'pk':self.brand_create_response.data['id'] } ))
-        
         self.assertEqual(response.status_code , status.HTTP_204_NO_CONTENT)
         self.assertEqual(Brand.objects.all().count(), 0)
         
