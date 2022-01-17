@@ -26,8 +26,8 @@ urlpatterns = [
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     
-    path('brands/'  , include('brands.urls')),
-    path('modules/' , include('modules.urls') ),
-    path('stocks/'  , include('stocks.urls')),
-    path('products/'  , include('products.urls')),
+    path('', include('brands.urls')),
+    path('', include('modules.urls') ),
+    path('', include('stocks.urls')),
+    path('', include('products.urls')),
 ]

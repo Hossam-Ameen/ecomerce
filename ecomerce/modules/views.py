@@ -12,15 +12,15 @@ class ModuleViewSet(viewsets.ModelViewSet):
         request.data._mutable = True
         request.data.update({'user': request.user.id})
         module_serializer = self.serializer_class(data=request.data)
-        if module_serializer.is_valid(raise_exception=True):
-            module_serializer.save()
-            return Response(module_serializer.data, status=status.HTTP_201_CREATED)
+        module_serializer.is_valid(raise_exception=True)
+        module_serializer.save()
+        return Response(module_serializer.data, status=status.HTTP_201_CREATED)
            
     def update(self, request, *args, **kwargs):
         request.data._mutable = True
         instance = self.get_object()
         request.data.update({'user': instance.user.id})
         module_serializer = self.serializer_class(instance, data=request.data)
-        if module_serializer.is_valid(raise_exception=True):
-            module_serializer.save()
-            return Response(module_serializer.data, status=status.HTTP_200_OK)
+        module_serializer.is_valid(raise_exception=True)
+        module_serializer.save()
+        return Response(module_serializer.data, status=status.HTTP_200_OK)

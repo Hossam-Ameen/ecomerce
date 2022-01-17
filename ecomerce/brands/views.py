@@ -12,15 +12,15 @@ class BrandViewSet(viewsets.ModelViewSet):
         request.data._mutable = True
         request.data.update({'user': request.user.id})
         brand_serializer = self.serializer_class(data=request.data)
-        if brand_serializer.is_valid(raise_exception=True):
-            brand_serializer.save()
-            return Response(brand_serializer.data, status=status.HTTP_201_CREATED)
+        brand_serializer.is_valid(raise_exception=True)
+        brand_serializer.save()
+        return Response(brand_serializer.data, status=status.HTTP_201_CREATED)
         
     def update(self, request, *args, **kwargs):
         instance = self.get_object()
         request.data._mutable = True
         request.data.update({'user': instance.user.id})
         brand_serializer = self.serializer_class(instance, data=request.data)
-        if brand_serializer.is_valid(raise_exception=True):
-            brand_serializer.save()
-            return Response(brand_serializer.data, status=status.HTTP_200_OK)
+        brand_serializer.is_valid(raise_exception=True):
+        brand_serializer.save()
+        return Response(brand_serializer.data, status=status.HTTP_200_OK)

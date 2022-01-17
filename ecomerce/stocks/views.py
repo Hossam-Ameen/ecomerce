@@ -12,15 +12,15 @@ class StockViewSet(viewsets.ModelViewSet):
         request.data._mutable = True
         request.data.update({'user': request.user.id})
         stock_serializer = self.serializer_class(data=request.data)
-        if stock_serializer.is_valid(raise_exception=True):
-            stock_serializer.save()
-            return Response(stock_serializer.data, status=status.HTTP_201_CREATED)
+        stock_serializer.is_valid(raise_exception=True)
+        stock_serializer.save()
+        return Response(stock_serializer.data, status=status.HTTP_201_CREATED)
         
     def update(self, request, *args, **kwargs):
         instance = self.get_object()
         request.data._mutable = True
         request.data.update({'user': instance.user.id})
         stock_serializer = self.serializer_class(instance, data=request.data)
-        if stock_serializer.is_valid(raise_exception=True):
-            stock_serializer.save()
-            return Response(stock_serializer.data, status=status.HTTP_200_OK)
+        stock_serializer.is_valid(raise_exception=True)
+        stock_serializer.save()
+        return Response(stock_serializer.data, status=status.HTTP_200_OK)
