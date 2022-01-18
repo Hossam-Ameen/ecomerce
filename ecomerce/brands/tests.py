@@ -59,8 +59,10 @@ class BrandDetialTest(BrandCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         
     def test_update_one_item(self):
+        file=SimpleUploadedFile(name='lg_updated.jpg', content=open(self.BASE_DIR/'lg.jpeg', 'rb').read(), content_type='image/jpeg')
         response = self.client.patch(reverse('brands-detail', kwargs={'pk':self.brand_create_response.data['id'] } ) , {
-            'name': "LG"
+            'name': "LG",
+            'image': file
         } )
         updated_brand=Brand.objects.get(id=self.brand_create_response.data['id'])
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -68,7 +70,7 @@ class BrandDetialTest(BrandCase):
     
     def test_update_one_item_with_image(self):
         file=SimpleUploadedFile(name='lg_updated.jpg', content=open(self.BASE_DIR/'lg.jpeg', 'rb').read(), content_type='image/jpeg')
-        response = self.client.patch(reverse('brands-detail', kwargs={'pk':self.brand_create_response.data['id'] } ) , {
+        response = self.client.patch(reverse('brands-update-image', kwargs={'pk':self.brand_create_response.data['id'] } ) , {
             'image': file
         } ) 
         self.assertEqual(response.status_code, status.HTTP_200_OK)

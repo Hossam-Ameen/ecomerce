@@ -3,10 +3,11 @@ from django.contrib.auth.models import User
 import os
 from django.conf import settings
 
+
 class Brand(models.Model):
     name = models.CharField(max_length=50)
-    image = models.FileField(upload_to="", max_length=100)
-    user = models.ForeignKey(User,related_name='owner', on_delete=models.CASCADE)
+    image = models.FileField(upload_to="uploads/", max_length=100)
+    user = models.ForeignKey(User, related_name='brand_user', on_delete=models.CASCADE)
 
     def delete(self, *args, **kwargs):
         os.remove(os.path.join(settings.MEDIA_ROOT, self.image.name))

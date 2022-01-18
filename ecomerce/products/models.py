@@ -4,10 +4,10 @@ from modules.models import Module
 
 
 class Product(models.Model):
-    name     = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
     quantity = models.IntegerField()
-    price    = models.FloatField()
+    price = models.FloatField()
     discount = models.FloatField()
-    module   = models.ForeignKey(Module,related_name="module", on_delete=models.CASCADE)
-    user     = models.ForeignKey(User,related_name="user",  on_delete=models.CASCADE)
+    module = models.ForeignKey(Module, related_name="product_module", on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name="product_user",  on_delete=models.CASCADE)
     
