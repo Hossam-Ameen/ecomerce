@@ -70,7 +70,7 @@ class BrandDetialTest(BrandCase):
     
     def test_update_one_item_with_image(self):
         file=SimpleUploadedFile(name='lg_updated.jpg', content=open(self.BASE_DIR/'lg.jpeg', 'rb').read(), content_type='image/jpeg')
-        response = self.client.patch(reverse('brands-update-image', kwargs={'pk':self.brand_create_response.data['id'] } ) , {
+        response = self.client.patch(reverse('brands-update_image', kwargs={'pk':self.brand_create_response.data['id'] } ) , {
             'image': file
         } ) 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
