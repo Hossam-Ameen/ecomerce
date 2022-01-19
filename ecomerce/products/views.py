@@ -20,11 +20,7 @@ class ProductViewSet(viewsets.ModelViewSet):
         instance = self.get_object()
         request.data._mutable = True
         request.data.update({'user': instance.user.id})
-<<<<<<< HEAD
         product_serializer = self.serializer_class(instance, data=request.data, partial=True)
-=======
-        product_serializer = self.serializer_class(instance, data=request.data)
->>>>>>> main
         product_serializer.is_valid(raise_exception=True)
         product_serializer.save()
         return Response(product_serializer.data, status=status.HTTP_200_OK)
