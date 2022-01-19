@@ -5,5 +5,8 @@ class BrandSerializer(serializers.ModelSerializer):
     class Meta:
         model = Brand
         fields = "__all__"
+<<<<<<< HEAD
 
                         
+=======
+>>>>>>> main

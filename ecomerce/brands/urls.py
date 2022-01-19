@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 from django.urls import path,include
+=======
+>>>>>>> main
 from . import views
 from rest_framework.routers import DefaultRouter
 

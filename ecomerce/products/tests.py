@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from rest_framework import status
 from django.urls import reverse
 from django.contrib.auth.models import User
@@ -81,3 +82,8 @@ class ProductDetialTest(ModuleCase):
         self.assertEqual(response.status_code , status.HTTP_204_NO_CONTENT)
         self.assertEqual(Product.objects.all().count(), 0)
         
+=======
+from django.test import TestCase
+
+# Create your tests here.
+>>>>>>> main
