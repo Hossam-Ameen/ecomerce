@@ -25,6 +25,7 @@ urlpatterns = [
         ################# login ###################
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+        ############### url for apps ############
     path('api/', include('brands.urls')),
     path('api/', include('modules.urls') ),
     path('api/', include('stocks.urls')),
