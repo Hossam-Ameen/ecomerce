@@ -18,7 +18,7 @@ class BrandCase(APITestCase):
         self.token = response.data['access']
         
     def create_brand(self):
-        file=SimpleUploadedFile(name='samsung_image.jpg', content=open(self.BASE_DIR/'samsung.png', 'rb').read(), content_type='image/jpeg')
+        file=SimpleUploadedFile(name='samsung_image.jpg', content=open(self.BASE_DIR/'static/images/samsung.png', 'rb').read(), content_type='image/jpeg')
         new_brand = {'name':"samsung", 'image':file}
         self.brand_create_response = self.client.post(reverse('brands-list'), new_brand, HTTP_AUTHORIZATION=f"Bearer {self.token}")
         
@@ -59,7 +59,7 @@ class BrandDetialTest(BrandCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         
     def test_update_one_item(self):
-        file=SimpleUploadedFile(name='lg_updated.jpg', content=open(self.BASE_DIR/'lg.jpeg', 'rb').read(), content_type='image/jpeg')
+        file=SimpleUploadedFile(name='lg_updated.jpg', content=open(self.BASE_DIR/'static/images/lg.jpeg', 'rb').read(), content_type='image/jpeg')
         response = self.client.patch(reverse('brands-detail', kwargs={'pk':self.brand_create_response.data['id'] } ), {
             'name': "LG",
             'image': file
@@ -69,7 +69,7 @@ class BrandDetialTest(BrandCase):
         self.assertEqual(updated_brand.name, "LG")      
     
     def test_update_one_item_with_image(self):
-        file=SimpleUploadedFile(name='lg_updated.jpg', content=open(self.BASE_DIR/'lg.jpeg', 'rb').read(), content_type='image/jpeg')
+        file=SimpleUploadedFile(name='lg_updated.jpg', content=open(self.BASE_DIR/'static/images/lg.jpeg', 'rb').read(), content_type='image/jpeg')
         response = self.client.patch(reverse('brands-update_image', kwargs={'pk':self.brand_create_response.data['id'] } ), {
             'image': file
         } ) 
