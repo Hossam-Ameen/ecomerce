@@ -25,7 +25,7 @@ class BrandViewSet(viewsets.ModelViewSet):
         brand_serializer.save()
         return Response(brand_serializer.data, status=status.HTTP_200_OK)
 
-    @action(methods=['patch'], detail=True)
+    @action(methods=['patch'], detail=True, url_path='update-image', url_name='update_image')
     def update_image(self, request, pk=None):
         instance = self.get_object()
         request.data._mutable = True

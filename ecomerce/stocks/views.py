@@ -18,7 +18,6 @@ class StockViewSet(viewsets.ModelViewSet):
         
     def update(self, request, *args, **kwargs):
         instance = self.get_object()
-        request.data._mutable = True
         request.data.update({'user': instance.user.id})
         stock_serializer = self.serializer_class(instance, data=request.data)
         stock_serializer.is_valid(raise_exception=True)
